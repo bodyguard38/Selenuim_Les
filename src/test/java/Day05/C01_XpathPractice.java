@@ -58,7 +58,7 @@ public class C01_XpathPractice extends Base {
         // name attribute u 'user' ile baslayan ve placeholder attribute u 'name' iceren input elementi
         WebElement username = driver.findElement(By.xpath("//input[starts-with(@name, 'user')][contains(@placeholder,'name')]"));
         username.sendKeys("Karl");
-
+        Thread.sleep(3000);
         WebElement password = driver.findElement(By.xpath("//input[contains(@type,'pass')]"));
         password.sendKeys("admin123");
 
