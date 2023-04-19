@@ -23,7 +23,7 @@ public class C02_ChromeOptions {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximazed");
+        options.addArguments("start-maximized");
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("https://www.google.com/");
