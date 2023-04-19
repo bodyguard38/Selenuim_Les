@@ -1,0 +1,4 @@
+Go to Amazon homepage.
+Do the following tasks by creating 2 different test methods.
+1- Test if the URL contains Amazon.
+2- Test if the title does not contain Facebook.
