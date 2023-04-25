@@ -18,7 +18,7 @@ public class HomeWork extends Base {
         driver.get("https://demoqa.com/radio-button");
         Thread.sleep(3000);
 
-        WebElement yesCheck = driver.findElement(By.id("yesRadio"));
+        WebElement yesCheck = driver.findElement(By.xpath("//input[@id=\"yesRadio\"]"));
         WebElement impressiveCheck = driver.findElement(By.xpath("(//input[@class=\"custom-control-input\"])[2]"));
         WebElement noCheck = driver.findElement(By.xpath("//input[@class=\"custom-control-input disabled\"]"));
 
@@ -26,6 +26,7 @@ public class HomeWork extends Base {
         Assert.assertTrue(!yesCheck.isSelected());
         Assert.assertTrue(!impressiveCheck.isSelected());
         Assert.assertTrue(!noCheck.isSelected());
+
 
         yesCheck.click();
         Thread.sleep(3000);
