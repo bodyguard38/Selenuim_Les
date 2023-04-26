@@ -40,6 +40,12 @@
         <artifactId>javafaker</artifactId>
         <version>1.0.2</version>
     </dependency>
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-api</artifactId>
+        <version>4.8.3</version>
+        <scope>test</scope>
+    </dependency>
 
 
 </dependencies>

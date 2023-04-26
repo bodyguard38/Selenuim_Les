@@ -31,7 +31,8 @@ public class HomeWork_6 extends Base {
         shadow.findElement(By.cssSelector(".banner__accept-button")).click();
 
         Thread.sleep(3000);
-       // driver.findElement(By.xpath("//div[@id=\"ins-editable-button-1580496494\"]")).click();
+        driver.findElement(By.xpath("//div[@id=\"ins-editable-button-1580496494\"]")).click();
+
 
         Thread.sleep(3000);
         driver.findElement(By.xpath("//input[@id=\"search-input\"]")).sendKeys("oppo"+ Keys.ENTER);

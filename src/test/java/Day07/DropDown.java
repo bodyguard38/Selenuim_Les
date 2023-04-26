@@ -66,11 +66,11 @@ public class DropDown extends Base {
         // 3- deselectByVisibleText() -> option elementinin gorunur yazisi (contenti)
         // 4- deselectAll() -> Butun secimleri kaldirir.
 
-        //Select elementlerinde info amaciyla kullanilan methodlar
-//        select.getAllSelectedOptions(); -> multi selectte secili tum degerleri bize return eden methoddur.
-//        select.getFirstSelectedOption(); -> Secili ilk option elementini bize getirir.
-//        select.getOptions(); -> select elementinin tum optionlarini liste halinde return eder
-//        select.isMultiple(); -> select elementinin multiple secime uygun olup olmadigni bize boolean olarak return eder.
+        //  Select elementlerinde info amaciyla kullanilan methodlar
+        //  select.getAllSelectedOptions(); -> multi selectte secili tum degerleri bize return eden methoddur.
+        //  select.getFirstSelectedOption(); -> Secili ilk option elementini bize getirir.
+        //  select.getOptions(); -> select elementinin tum optionlarini liste halinde return eder
+        //  select.isMultiple(); -> select elementinin multiple secime uygun olup olmadigni bize boolean olarak return eder.
 
 
 

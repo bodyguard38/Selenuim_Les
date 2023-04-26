@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Base {
+public abstract class Base {
 
     protected WebDriver driver;
     @Before
