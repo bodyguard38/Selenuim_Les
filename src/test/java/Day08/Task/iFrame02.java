@@ -1,6 +1,7 @@
 package Day08.Task;
 
 import Utilities.Base;
+import org.junit.Test;
 
 public class iFrame02 extends Base {
             /*
@@ -10,4 +11,9 @@ public class iFrame02 extends Base {
         Exit the iframe and return to the main page.
              */
 
+    @Test
+    public void test(){
+        driver.get("http://demo.guru99.com/test/guru99home/");
+
+    }
 }
