@@ -11,8 +11,8 @@ public class Task02 {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.amazon.com/");
 
-        System.out.println(driver.getCurrentUrl().contains("Amazon") ? "Test passed" : "Test failed");
+        System.out.println(driver.getCurrentUrl().contains("amazon") ? "Test passed" : "Test failed");
 
-        System.out.println(!driver.getTitle().contains("Facebook") ? "Test passed" : "Test failed");
+        System.out.println(driver.getTitle().contains("Facebook") ? "Test passed" : "Test failed");
     }
 }

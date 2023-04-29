@@ -38,8 +38,9 @@ public class Selecttime extends Base {
 
         Assert.assertTrue(allList.contains("Black"));
 
-
-
+        String text = select.getFirstSelectedOption().getText();
+        System.out.println(text);
+        select.selectByVisibleText("Yellow");
 
 
     }

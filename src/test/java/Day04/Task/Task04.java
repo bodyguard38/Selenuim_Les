@@ -1,11 +1,14 @@
 package Day04.Task;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.time.Duration;
 
 public class Task04 {
     /*
@@ -24,16 +27,19 @@ public class Task04 {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://id.heroku.com/login");
-        Thread.sleep(4000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.findElement(By.xpath("//button[@id=\"onetrust-accept-btn-handler\"]")).click();
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         driver.findElement(By.xpath("//input[@autofocus=\"true\"]")).sendKeys("ahmet@hotmail.com");
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.xpath("//input[@autocomplete=\"off\"]")).sendKeys("ddss1299+");
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//button[@class=\"btn btn-primary btn-lg btn-block\"]")).click();
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(By.xpath("//button[@class=\"btn btn-primary btn-lg btn-block\"]")).submit();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         System.out.println(driver.findElement(By.xpath("//div[@class=\"alert alert-danger\"]"))
                 .getText().equals("There was a problem with your login.") ? "Could not record" : "recorded");
 

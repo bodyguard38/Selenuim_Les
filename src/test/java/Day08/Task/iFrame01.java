@@ -5,6 +5,10 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class iFrame01 extends Base {
     /*
     https://www.jqueryscript.net/demo/Easy-iFrame-based-Twitter-Emoji-Picker-Plugin-jQuery-Emoojis/ sitesine gidiniz.
@@ -19,23 +23,29 @@ public class iFrame01 extends Base {
 
         driver.get(" https://www.jqueryscript.net/demo/Easy-iFrame-based-Twitter-Emoji-Picker-Plugin-jQuery-Emoojis/");
         driver.manage().window().maximize();
+
         WebElement frame = driver.findElement(By.id("emoojis"));
         driver.switchTo().frame(frame);
 
-        driver.findElement(By.xpath("//a[@href=\"#nature\"]")).click();
-        driver.switchTo().defaultContent();
+        driver.findElement(By.xpath("(//span[@class=\"mdl-tabs__ripple-container mdl-js-ripple-effect\"])[2]")).click();
 
-        driver.findElement(By.id("text")).sendKeys("Wat een gezellige wereld");
-        driver.findElement(By.id("smiles")).sendKeys("Ik ben blij");
-        driver.findElement(By.id("nature")).sendKeys("Nederland");
-        driver.findElement(By.id("food")).sendKeys("Turkse doner");
-        driver.findElement(By.id("activities")).sendKeys("wandelen");
-        driver.findElement(By.id("places")).sendKeys("Amsterdam");
-        driver.findElement(By.id("objects")).sendKeys("klomp");
-        driver.findElement(By.id("symbols")).sendKeys("Molen");
-        driver.findElement(By.id("flags")).sendKeys("Nederlanse vlag");
+        List<WebElement> elements = driver.findElements(By.xpath("//div[@id=\"nature\"]//div"));
 
-        driver.findElement(By.id("send")).click();
+        elements.stream().forEach(WebElement::click);
+
+
+       driver.switchTo().parentFrame();
+
+        List<WebElement> textList = driver.findElements(By.xpath("//input[@class= 'mdl-textfield__input']"));
+
+        List<String> text = new ArrayList<>(Arrays.asList("Bir", "iframe", "sorusu",
+                "bu", "kadar", "eglenceli", "olabilir", "sizce de ", "oyle degil mi ?", "", ""));
+        for (int i = 0; i < textList.size(); i++) {
+            textList.get(i).sendKeys(text.get(i));
+        }
+       driver.findElement(By.id("send")).click();
+
+
 
 
     }
