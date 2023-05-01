@@ -44,8 +44,10 @@ public class Untitted extends Base {
         driver.findElement(By.xpath("//a[@href=\"#Textbox\"]")).click();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath("//button[@class=\"btn btn-info\"]")).click();
+        WebElement ahmet = driver.findElement(By.xpath("//button[@class=\"btn btn-info\"]"));
+        ahmet.click();
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.switchTo().alert().sendKeys("Ahmet Aktas");
 
 
