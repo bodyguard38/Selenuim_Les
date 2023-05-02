@@ -20,8 +20,8 @@ public class C01_Cookies extends Base {
     //    Delete All Cookies.
 
     public void printCookies(){
-        Set<Cookie> cookies = driver.manage().getCookies();
 
+        Set<Cookie> cookies = driver.manage().getCookies();
 
         Iterator<Cookie> i = cookies.iterator();
 
