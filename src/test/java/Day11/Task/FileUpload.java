@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
+
 public class FileUpload extends Base {
 
     //Go to URL: https://www.monsterindia.com/seeker/registration
@@ -12,14 +14,19 @@ public class FileUpload extends Base {
 
     @Test
     public void test(){
+
         driver.get("https://www.monsterindia.com/seeker/registration");
 
-        String path = System.getProperty("user.dir")+System.getProperty("file.separator")
-                +"fileExists.txt";
+        String path=System.getProperty("user.dir") + System.getProperty("file.separator") + "\\src\\test\\resources\\sample.docx";
 
-        WebElement chooseFile = driver.findElement(By.xpath("//div[@class=\"contentTitle\"]"));
+        System.out.println("path = " + path);
+        WebElement uploadResume= driver.findElement(By.xpath("//input[@type='file']"));
 
-        chooseFile.sendKeys(path);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        uploadResume.sendKeys(path);
+
+
 
     }
 }
