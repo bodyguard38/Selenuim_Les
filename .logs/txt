@@ -1,0 +1,4 @@
+2023-05-04 16:43:35 INFO  C03_Log4j:12 - This is an info message
+2023-05-04 16:43:35 WARN  C03_Log4j:13 - This is a warning message
+2023-05-04 16:43:35 ERROR C03_Log4j:14 - This is an error message
+2023-05-04 16:43:35 FATAL C03_Log4j:15 - This is a fatal message

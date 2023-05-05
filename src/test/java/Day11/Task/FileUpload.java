@@ -26,6 +26,8 @@ public class FileUpload extends Base {
 
         uploadResume.sendKeys(path);
 
+        driver.findElement(By.xpath("//div[@class=\"primaryBtn commonBtn\"]")).click();
+
 
 
     }

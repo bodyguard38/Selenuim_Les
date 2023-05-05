@@ -2,6 +2,7 @@ package Day12;
 
 import org.apache.poi.ss.usermodel.*;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ public class C01_Excel {
         // Okunacak excel dosyamizin pathi
         String path = System.getProperty("user.dir") + "\\src\\test\\resources\\excelData.xlsx";
 
-        // Path kullanilarak olusturulan file input stream objesi
+        // Path kullanilarak olusturulan file input stream objenesis
         FileInputStream fis = new FileInputStream(path);
 
         // File input stream ile olusturulan workbook objesi
