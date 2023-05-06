@@ -19,28 +19,40 @@ public class WindowsHandle04 extends Base {
     Print the heading of the parent window in the console.
      */
     @Test
-    public void test(){
+    public void childWindow(){
+
         driver.get("https://demoqa.com/browser-windows");
-        String MainPageId = driver.getWindowHandle();
+
+        driver.findElement(By.id("windowButton")).click();
+        String mainWindowHandle = driver.getWindowHandle();
+
+        Set<String> allWindowsHandels = driver.getWindowHandles();
+        Iterator<String> it = allWindowsHandels.iterator();
+
+        while(it.hasNext()){
+
+            String ChildWindow = it.next();
+
+            if(!mainWindowHandle.equals(ChildWindow)){
+
+                driver.switchTo().window(ChildWindow);
+                WebElement text = driver.findElement(By.id("sampleHeading"));
+                System.out.println("Heading of child window is "+ text.getText());
+            }
+        }
+
+    }
+
+    @Test
+    public void multipleChildWindows() {
+
+        driver.get("https://demoqa.com/browser-windows");
 
 
         driver.findElement(By.id("windowButton")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        driver.findElement(By.id("tabButton")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.id("messageWindowButton")).click();
-
-        Set<String> handleList=  driver.getWindowHandles();
-        Iterator<String> it= handleList.iterator();
-
-        while(it.hasNext()){
-           driver.switchTo().window(String.valueOf(it.hasNext()));
-
-        }
-
-
-        System.out.println(driver.switchTo().window(MainPageId).getTitle());
+        String mainWindow = driver.getWindowHandle();
+        System.out.println(mainWindow);
 
     }
 }

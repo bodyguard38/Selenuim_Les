@@ -24,30 +24,35 @@ public class WindowsHandle02 extends Base {
     public void test(){
 
         driver.get("https://the-internet.herokuapp.com/windows");
+        String window1Handle = driver.getWindowHandle();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebElement expected = driver.findElement(By.xpath("//*[text()='Opening a new window']"));
-        Assert.assertEquals(expected.getText(),"Opening a new window");
-        Assert.assertEquals(driver.getTitle(),"The Internet");
-        String mainPageId = driver.getWindowHandle();
+        WebElement window1Text = driver.findElement(By.xpath("//h3[text()='Opening a new window']"));
+        Assert.assertEquals("Opening a new window", window1Text.getText());
 
-        driver.findElement(By.xpath("//*[text()='Click Here']")).click();
+        Assert.assertEquals("The Internet", driver.getTitle());
 
-        Set<String> handlesList = driver.getWindowHandles();//sayfalarin handles degerleri alindi
+        driver.findElement(By.xpath("(//a[@target=\"_blank\"])[1]")).click();
 
-        Iterator<String> it = handlesList.iterator();
 
-        while (it.hasNext()){
-            String currentHandle = it.next();
+        Set<String> AllWindowsHandels = driver.getWindowHandles();
+        System.out.println(AllWindowsHandels);
 
-            driver.switchTo().window(currentHandle);
-            if(driver.getTitle().equals("New Window")){
-                Assert.assertEquals("New Window", driver.getTitle());
+        for (String eachHandle:AllWindowsHandels) {
+            if(!eachHandle.equals(window1Handle))  {
+                driver.switchTo().window(eachHandle);
                 break;
             }
         }
 
-        Assert.assertEquals("The Internet",driver.switchTo().window(mainPageId).getTitle());
+        String window2Handle = driver.getWindowHandle();
+        String window2Title = driver.getTitle();
+        Assert.assertEquals("New Window", window2Title);
 
+        driver.switchTo().window(window1Handle);
+        Assert.assertEquals("The Internet", driver.getTitle());
+
+        driver.switchTo().window(window2Handle);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.switchTo().window(window1Handle);
     }
 }
