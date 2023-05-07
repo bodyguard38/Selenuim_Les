@@ -3,11 +3,13 @@ package Day08.Task;
 import Utilities.Base;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
 public class iFrame02 extends Base {
+
             /*
             Go to URL: http://demo.guru99.com/test/guru99home/
         Find the number of iframes on the page.
@@ -17,20 +19,19 @@ public class iFrame02 extends Base {
 
     @Test
     public void test(){
-        driver.get("http://demo.guru99.com/test/guru99home/");
+      driver.get("http://demo.guru99.com/test/guru99home/");
+      WebElement iframe = driver.findElement(By.xpath("(//iframe)[6]"));
+      driver.switchTo().frame(iframe);
+      driver.findElement(By.xpath("//span[text()='Alles accepteren']")).click();
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("disable-popup-blocking");
+      int iframeNumber = driver.findElements(By.tagName("iframe")).size();
+      System.out.println("iframeNumber = " + iframeNumber);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+      driver.switchTo().frame("a077aa5e");
+      driver.findElement(By.xpath("/html/body/a")).click();
+
+      driver.switchTo().defaultContent();
 
 
-        int iframe = driver.findElements(By.tagName("iframe")).size();
-        System.out.println(iframe);
-
-        driver.switchTo().frame("//iframe[@id=\"a077aa5e\"]");
-        driver.findElement(By.xpath("/html/body/a")).click();
-
-        driver.switchTo().defaultContent();
     }
 }

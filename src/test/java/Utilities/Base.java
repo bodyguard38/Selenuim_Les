@@ -23,6 +23,7 @@ public abstract class Base {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         actions = new Actions(driver);
     }
     @After
